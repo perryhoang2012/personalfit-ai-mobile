@@ -1,4 +1,4 @@
-package com.fastrntemplate;
+package com.personalfitaicoach;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

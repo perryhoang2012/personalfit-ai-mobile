@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.fastrntemplate"
+    namespace "com.personalfitaicoach"
     defaultConfig {
-        applicationId "com.fastrntemplate"
+        applicationId "com.personalfitaicoach"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
