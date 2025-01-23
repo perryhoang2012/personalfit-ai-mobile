@@ -1,5 +1,6 @@
 import {moderateScale, scale, verticalScale} from '@helpers/uiHelper';
 import {colors} from '@themes/colors';
+import {fonts} from '@themes/fonts';
 import React from 'react';
 import {Platform, Text as TextBase} from 'react-native';
 import {styles} from './Text.styles';
@@ -32,51 +33,77 @@ export interface Props {
   height?: number;
   color?: string;
   numberOfLines?: number;
-  regular?: boolean;
-  bold?: boolean;
-  extraBold?: boolean;
-  extraLight?: boolean;
-  light?: boolean;
-  medium?: boolean;
   black?: boolean;
+  blackItalic?: boolean;
+  bold?: boolean;
+  boldItalic?: boolean;
+  extraBold?: boolean;
+  extraBoldItalic?: boolean;
+  extraLight?: boolean;
+  extraLightItalic?: boolean;
+  italic?: boolean;
+  light?: boolean;
+  lightItalic?: boolean;
+  medium?: boolean;
+  mediumItalic?: boolean;
+  regular?: boolean;
   semiBold?: boolean;
+  semiBoldItalic?: boolean;
   thin?: boolean;
+  thinItalic?: boolean;
   children?: any;
 }
 
-const Text: React.FC<Props> = props => {
-  const {
-    children,
-    flex,
-    center,
-    left,
-    right,
-    style,
-    pa,
-    px,
-    py,
-    pl,
-    pr,
-    pt,
-    pb,
-    ma,
-    mx,
-    my,
-    ml,
-    mr,
-    mt,
-    mb,
-    title,
-    size,
-    weight,
-    height,
-    color,
-  } = props;
-
+const Text: React.FC<Props> = ({
+  children,
+  flex,
+  center,
+  left,
+  right,
+  style,
+  pa,
+  px,
+  py,
+  pl,
+  pr,
+  pt,
+  pb,
+  ma,
+  mx,
+  my,
+  ml,
+  mr,
+  mt,
+  mb,
+  title,
+  size,
+  weight,
+  height,
+  color,
+  numberOfLines,
+  black,
+  blackItalic,
+  bold,
+  boldItalic,
+  extraBold,
+  extraBoldItalic,
+  extraLight,
+  extraLightItalic,
+  italic,
+  light,
+  lightItalic,
+  medium,
+  mediumItalic,
+  regular,
+  semiBold,
+  semiBoldItalic,
+  thin,
+  thinItalic,
+}) => {
   const textStyles: any = [
-    {color: colors.BLACK},
+    {color: colors.GRAY_900},
     color && {
-      color: color in colors ? colors[color as keyof typeof colors] : color,
+      color: colors[color as keyof typeof colors] || color,
     },
     flex && {flex: 1},
     !size && {lineHeight: 20},
@@ -103,14 +130,37 @@ const Text: React.FC<Props> = props => {
       fontWeight: weight === 'bold' && Platform.OS === 'ios' ? '500' : weight,
     },
     size && {fontSize: moderateScale({size})},
+    black && {fontFamily: fonts.BLACK},
+    blackItalic && {fontFamily: fonts.BLACK_ITALIC},
+    bold && {fontFamily: fonts.BOLD},
+    boldItalic && {fontFamily: fonts.BOLD_ITALIC},
+    extraBold && {fontFamily: fonts.EXTRA_BOLD},
+    extraBoldItalic && {fontFamily: fonts.EXTRA_BOLD_ITALIC},
+    extraLight && {fontFamily: fonts.EXTRA_LIGHT},
+    extraLightItalic && {fontFamily: fonts.EXTRA_LIGHT_ITALIC},
+    italic && {fontFamily: fonts.ITALIC},
+    light && {fontFamily: fonts.LIGHT},
+    lightItalic && {fontFamily: fonts.LIGHT_ITALIC},
+    medium && {fontFamily: fonts.MEDIUM},
+    mediumItalic && {fontFamily: fonts.MEDIUM_ITALIC},
+    regular && {fontFamily: fonts.REGULAR},
+    semiBold && {fontFamily: fonts.SEMI_BOLD},
+    semiBoldItalic && {fontFamily: fonts.SEMI_BOLD_ITALIC},
+    thin && {fontFamily: fonts.THIN},
+    thinItalic && {fontFamily: fonts.THIN_ITALIC},
     style,
   ];
 
   return (
-    <TextBase {...props} style={textStyles}>
+    <TextBase numberOfLines={numberOfLines} style={textStyles}>
       {children}
     </TextBase>
   );
+};
+
+Text.defaultProps = {
+  black: false,
+  numberOfLines: 1,
 };
 
 export default Text;
