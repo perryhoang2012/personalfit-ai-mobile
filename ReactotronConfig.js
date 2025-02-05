@@ -7,7 +7,7 @@ const queryClientManager = new QueryClientManager({
 });
 
 if (__DEV__) {
-  Reactotron.configure({name: 'Fashionista'})
+  Reactotron.configure({name: 'PersonalFitAi'})
     .useReactNative({
       asyncStorage: true,
       networking: true,

@@ -1,1 +1,20 @@
-export const fonts = {};
+export const fonts = {
+  BLACK: 'Inter-Black',
+  BLACK_ITALIC: 'Inter-BlackItalic',
+  BOLD: 'Inter-Bold',
+  BOLD_ITALIC: 'Inter-BoldItalic',
+  EXTRA_BOLD: 'Inter-ExtraBold',
+  EXTRA_BOLD_ITALIC: 'Inter-ExtraBoldItalic',
+  EXTRA_LIGHT: 'Inter-ExtraLight',
+  EXTRA_LIGHT_ITALIC: 'Inter-ExtraLightItalic',
+  ITALIC: 'Inter-Italic',
+  LIGHT: 'Inter-Light',
+  LIGHT_ITALIC: 'Inter-LightItalic',
+  MEDIUM: 'Inter-Medium',
+  MEDIUM_ITALIC: 'Inter-MediumItalic',
+  REGULAR: 'Inter-Regular',
+  SEMI_BOLD: 'Inter-SemiBold',
+  SEMI_BOLD_ITALIC: 'Inter-SemiBoldItalic',
+  THIN: 'Inter-Thin',
+  THIN_ITALIC: 'Inter-ThinItalic',
+};

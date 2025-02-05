@@ -5,20 +5,20 @@ interface GeneralState {
   isLoading: boolean;
   showLoading: () => void;
   hideLoading: () => void;
-  firstTimeEnterApp: boolean;
-  setFirstTimeEnterApp: (value: boolean) => void;
+  isFirstLaunchAfterInstall: boolean;
+  setIsFirstLaunchAfterInstall: (value: boolean) => void;
 }
 
 const useGeneralStore = create<GeneralState>(set => ({
   isLoading: false,
-  firstTimeEnterApp: storage.contains('firstTimeEnterApp')
-    ? storage.getBoolean('firstTimeEnterApp') ?? true
+  isFirstLaunchAfterInstall: storage.contains('isFirstLaunchAfterInstall')
+    ? storage.getBoolean('isFirstLaunchAfterInstall') ?? true
     : true,
   showLoading: () => set({isLoading: true}),
   hideLoading: () => set({isLoading: false}),
-  setFirstTimeEnterApp: (status: boolean) => {
-    storage.set('firstTimeEnterApp', status);
-    set({firstTimeEnterApp: status});
+  setIsFirstLaunchAfterInstall: (status: boolean) => {
+    storage.set('isFirstLaunchAfterInstall', status);
+    set({isFirstLaunchAfterInstall: status});
   },
 }));
 
