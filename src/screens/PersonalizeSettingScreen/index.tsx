@@ -1,27 +1,32 @@
 import Block from '@components/Block';
 import Button from '@components/Button';
+import Calendars from '@components/Calendars';
+import ModalCustom from '@components/ModalCustom';
+import SelectNumber from '@components/SelectNumber';
 import Text from '@components/Text';
 import {t} from '@locales';
 import {colors} from '@themes/colors';
-import React from 'react';
-import {View} from 'react-native';
-import {styles} from './PersonalizeSetting.styles';
-import ModalCustom from '@components/ModalCustom';
-import Calendars from '@components/Calendars';
 import dayjs from 'dayjs';
+import React, {useState} from 'react';
+import {styles} from './PersonalizeSetting.styles';
 
 const PersonalizeSettingScreen = () => {
   const [showModalSelectDateOfBirth, setShowModalSelectDateOfBirth] =
-    React.useState<boolean>(false);
+    useState<boolean>(false);
 
-  const [state, setState] = React.useState({
+  const [showModalSelectHeight, setShowModalSelectHeight] =
+    useState<boolean>(false);
+  const [showModalSelectWeight, setShowModalSelectWeight] =
+    useState<boolean>(false);
+
+  const [state, setState] = useState({
     date_of_birth: dayjs().toDate(),
     gender: 'Male',
     height: 180,
     weight: 180,
   });
   return (
-    <View style={styles.container}>
+    <Block style={styles.container}>
       <Text semiBold size={24} height={32} color={colors.GRAY_50}>
         {t('PERSONALIZE_FITNESS_AND_HEALTH')}
       </Text>
@@ -55,17 +60,21 @@ const PersonalizeSettingScreen = () => {
           <Text color={colors.NEUTRAL} regular height={24} size={16}>
             {t('HEIGHT')}
           </Text>
-          <Text color={colors.GRAY_400} regular size={16} height={24}>
-            {state.height} {t('CM')}
-          </Text>
+          <Button onPress={() => setShowModalSelectHeight(true)}>
+            <Text color={colors.GRAY_400} regular size={16} height={24}>
+              {state.height} {t('CM')}
+            </Text>
+          </Button>
         </Block>
         <Block style={styles.inputRow}>
           <Text color={colors.NEUTRAL} regular height={24} size={16}>
             {t('WEIGHT')}
           </Text>
-          <Text color={colors.GRAY_400} regular size={16} height={24}>
-            {state.weight} {t('KG')}
-          </Text>
+          <Button onPress={() => setShowModalSelectWeight(true)}>
+            <Text color={colors.GRAY_400} regular size={16} height={24}>
+              {state.weight} {t('KG')}
+            </Text>
+          </Button>
         </Block>
       </Block>
 
@@ -101,7 +110,50 @@ const PersonalizeSettingScreen = () => {
           />
         </Block>
       </ModalCustom>
-    </View>
+
+      <ModalCustom
+        open={showModalSelectHeight}
+        toggleCloseModal={() => {
+          setShowModalSelectHeight(!showModalSelectHeight);
+        }}>
+        <Block middle center>
+          <Text mb={4} medium size={18} height={26} color={colors.GRAY_900}>
+            {t('HEIGHT')}
+          </Text>
+          <Text mb={20} regular size={16} color={colors.GRAY_600}>
+            {t('HEIGHT_DESC')}
+          </Text>
+          <SelectNumber
+            number={150}
+            setNumber={number => {}}
+            minNumber={100}
+            maxNumber={200}
+            unit={t('CM')}
+          />
+        </Block>
+      </ModalCustom>
+      <ModalCustom
+        open={showModalSelectWeight}
+        toggleCloseModal={() => {
+          setShowModalSelectWeight(!showModalSelectWeight);
+        }}>
+        <Block middle center>
+          <Text mb={4} medium size={18} height={26} color={colors.GRAY_900}>
+            {t('WEIGHT')}
+          </Text>
+          <Text mb={20} regular size={16} color={colors.GRAY_600}>
+            {t('WEIGHT_DESC')}
+          </Text>
+          <SelectNumber
+            number={150}
+            setNumber={number => {}}
+            minNumber={100}
+            maxNumber={200}
+            unit={t('KG')}
+          />
+        </Block>
+      </ModalCustom>
+    </Block>
   );
 };
 

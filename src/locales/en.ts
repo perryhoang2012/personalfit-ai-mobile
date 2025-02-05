@@ -60,4 +60,7 @@ export default {
   SELECT_DATE_OF_BIRTH: 'Select a Date of Birth',
   SELECT_DATE_OF_BIRTH_DESC:
     'No notification right now, notifications about your activity will show up here.',
+
+  HEIGHT_DESC: 'Set a height based on your body',
+  WEIGHT_DESC: 'Set a weight based on your body',
 };

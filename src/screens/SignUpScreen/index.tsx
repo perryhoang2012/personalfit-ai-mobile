@@ -26,7 +26,6 @@ const SignUpScreen = () => {
   const onSubmit = () => {};
 
   const goToSignIn = () => {
-    console.log('run');
     navigate('SignIn');
   };
 
