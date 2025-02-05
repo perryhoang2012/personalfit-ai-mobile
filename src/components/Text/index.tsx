@@ -80,7 +80,6 @@ const Text: React.FC<Props> = ({
   weight,
   height,
   color,
-  numberOfLines,
   black,
   blackItalic,
   bold,
@@ -125,11 +124,11 @@ const Text: React.FC<Props> = ({
     mr && {marginRight: scale(mr)},
     mt && {marginTop: verticalScale(mt)},
     mb && {marginBottom: verticalScale(mb)},
-    height && {lineHeight: height},
+    height && {lineHeight: height || 22},
     weight && {
       fontWeight: weight === 'bold' && Platform.OS === 'ios' ? '500' : weight,
     },
-    size && {fontSize: moderateScale({size})},
+    size && {fontSize: size},
     black && {fontFamily: fonts.BLACK},
     blackItalic && {fontFamily: fonts.BLACK_ITALIC},
     bold && {fontFamily: fonts.BOLD},
@@ -151,16 +150,9 @@ const Text: React.FC<Props> = ({
     style,
   ];
 
-  return (
-    <TextBase numberOfLines={numberOfLines} style={textStyles}>
-      {children}
-    </TextBase>
-  );
+  return <TextBase style={textStyles}>{children}</TextBase>;
 };
 
-Text.defaultProps = {
-  black: false,
-  numberOfLines: 1,
-};
+Text.defaultProps = {};
 
 export default Text;

@@ -7,10 +7,10 @@ import BootSplash from 'react-native-bootsplash';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import './ReactotronConfig';
 import RootNavigation from './src/navigation/RootNavigation';
+import useFirstTime from '@hooks/useFirstTime';
 
 function App(): JSX.Element {
   setLocale('en');
-
   useEffect(() => {
     const init = async () => {};
 
@@ -18,6 +18,7 @@ function App(): JSX.Element {
       await BootSplash.hide({fade: true});
     });
   }, []);
+  useFirstTime();
 
   return (
     <QueryClientProvider client={queryClient}>

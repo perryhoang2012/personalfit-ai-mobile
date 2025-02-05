@@ -4,6 +4,9 @@ import {Dimensions, Platform, StatusBar} from 'react-native';
 
 const {height: D_HEIGHT, width: D_WIDTH} = Dimensions.get('window');
 
+export const WIDTH = D_WIDTH;
+export const HEIGHT = D_HEIGHT;
+
 const STATUSBAR_DEFAULT_HEIGHT = 20;
 const STATUSBAR_X_HEIGHT = 44;
 const STATUSBAR_IP12_HEIGHT = 47;

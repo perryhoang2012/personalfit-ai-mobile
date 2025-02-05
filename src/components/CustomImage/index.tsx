@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {ImageStyle, StyleProp, View, ViewStyle} from 'react-native';
 import FastImage, {ResizeMode, Source} from 'react-native-fast-image';
 import {styles} from './CustomImage.style';
+import {IMAGES} from '@assets/images';
 
 type Props = {
   source: Source;
@@ -27,7 +28,7 @@ const CustomImage: React.FC<Props> = ({
     <View style={[styles.container, containerStyle]}>
       <FastImage
         style={customImageStyles}
-        source={isError ? require('@assets/images/logo.png') : source}
+        source={isError ? IMAGES.blank_image : source}
         resizeMode={FastImage.resizeMode[resizeMode]}
         onError={handleError}
       />

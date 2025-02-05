@@ -22,4 +22,8 @@ export const colors = {
   GRAY_700: '#404040',
   GRAY_800: '#262626',
   GRAY_900: '#1A1A1A',
+
+  BORDER_INPUT: '#404040',
+  TEXT_INVERT: '#A3A3A3',
+  TEXT_SECONDARY: '#D4D4D4D4',
 };
