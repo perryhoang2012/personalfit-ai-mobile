@@ -55,4 +55,6 @@ export default {
   KG: 'kg',
   LB: 'lb',
   CONTINUE: 'Tiếp tục',
+  CANCEL: 'Huỷ',
+  CONFIRM: 'Xác nhận',
 };

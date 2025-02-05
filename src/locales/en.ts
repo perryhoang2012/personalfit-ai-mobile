@@ -55,4 +55,9 @@ export default {
   KG: 'kg',
   LB: 'lb',
   CONTINUE: 'Continue',
+  CANCEL: 'Cancel',
+  CONFIRM: 'Confirm',
+  SELECT_DATE_OF_BIRTH: 'Select a Date of Birth',
+  SELECT_DATE_OF_BIRTH_DESC:
+    'No notification right now, notifications about your activity will show up here.',
 };
