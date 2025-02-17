@@ -24,7 +24,7 @@ const RootNavigation = () => {
     if (isFirstLaunchAfterInstall) {
       return 'OnBoarding';
     }
-    return userToken ? 'Home' : 'PersonalizeSettingScreen';
+    return userToken ? 'Home' : 'SignUp';
   };
 
   return (

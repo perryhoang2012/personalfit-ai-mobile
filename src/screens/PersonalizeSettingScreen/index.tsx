@@ -9,6 +9,7 @@ import {colors} from '@themes/colors';
 import dayjs from 'dayjs';
 import React, {useState} from 'react';
 import {styles} from './PersonalizeSetting.styles';
+import DropDown from '@components/DropDown';
 
 const PersonalizeSettingScreen = () => {
   const [showModalSelectDateOfBirth, setShowModalSelectDateOfBirth] =
@@ -52,9 +53,13 @@ const PersonalizeSettingScreen = () => {
           <Text color={colors.NEUTRAL} regular height={24} size={16}>
             {t('GENDER')}
           </Text>
-          <Text color={colors.GRAY_400} regular size={16} height={24}>
-            {state.gender}
-          </Text>
+          <DropDown
+            listDropDown={['Male', 'Female']}
+            value={state.gender}
+            setValue={value => setState({...state, gender: value})}
+            placeholder={t('SELECT_GENDER')}
+            isShowDropDown={true}
+          />
         </Block>
         <Block style={styles.inputRow}>
           <Text color={colors.NEUTRAL} regular height={24} size={16}>
