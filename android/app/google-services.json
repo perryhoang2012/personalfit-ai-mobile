@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "666915108397",
+    "project_id": "personalfit-ai-mobile",
+    "storage_bucket": "personalfit-ai-mobile.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666915108397:android:cecb4166632207c6d4aaa4",
+        "android_client_info": {
+          "package_name": "com.personalfitaicoach"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmEAW1pId11Ghcm7rFBqoJXSo4q_Nj1WY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
