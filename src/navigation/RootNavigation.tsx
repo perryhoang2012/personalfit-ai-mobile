@@ -11,6 +11,15 @@ import React from 'react';
 import HomeScreen from '../screens/HomeScreen';
 import {navigationRef} from './NavigationService';
 
+const linking = {
+  prefixes: ['personalfit-ai://', 'https://personalfitai.com'],
+  config: {
+    screens: {
+      Home: 'Home',
+    },
+  },
+};
+
 const RootNavigation = () => {
   const RootStack = createNativeStackNavigator<RootStackParamList>();
 
@@ -28,10 +37,12 @@ const RootNavigation = () => {
   };
 
   return (
-    <NavigationContainer ref={navigationRef}>
+    <NavigationContainer ref={navigationRef} linking={linking}>
       <RootStack.Navigator
         initialRouteName={getInitialRoute()}
-        screenOptions={{headerShown: false}}>
+        screenOptions={{
+          headerShown: false,
+        }}>
         <RootStack.Screen name="Home" component={HomeScreen} />
         <RootStack.Screen name="OnBoarding" component={OnboardingScreen} />
         <RootStack.Screen name="SignUp" component={SignUpScreen} />
