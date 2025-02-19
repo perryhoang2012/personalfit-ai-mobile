@@ -7,7 +7,7 @@ interface UserState {
 }
 
 const useUserStore = create<UserState>(set => ({
-  userToken: null,
+  userToken: '1111111',
   setUserToken(value) {
     storage.set('userToken', value);
     set({userToken: value});

@@ -5,12 +5,14 @@ import ModalCustom from '@components/ModalCustom';
 import SelectNumber from '@components/SelectNumber';
 import Text from '@components/Text';
 import {t} from '@locales';
-import {colors} from '@themes/colors';
+import {useThemeStore} from '@themes/useThemeStore';
 import dayjs from 'dayjs';
 import React, {useState} from 'react';
 import {styles} from './PersonalizeSetting.styles';
 
 const PersonalizeSettingScreen = () => {
+  const {colors} = useThemeStore();
+
   const [showModalSelectDateOfBirth, setShowModalSelectDateOfBirth] =
     useState<boolean>(false);
 
@@ -35,7 +37,7 @@ const PersonalizeSettingScreen = () => {
       </Text>
 
       <Block mt={40} flex>
-        <Block style={styles.inputRow}>
+        <Block style={[styles.inputRow, {borderBottomColor: colors.GRAY_700}]}>
           <Text color={colors.NEUTRAL} regular height={24} size={16}>
             {t('DATE_OF_BIRTH')}
           </Text>
@@ -48,15 +50,19 @@ const PersonalizeSettingScreen = () => {
             </Text>
           </Button>
         </Block>
-        <Block style={styles.inputRow}>
+        <Block style={[styles.inputRow, {borderBottomColor: colors.GRAY_700}]}>
           <Text color={colors.NEUTRAL} regular height={24} size={16}>
             {t('GENDER')}
           </Text>
-          <Text color={colors.GRAY_400} regular size={16} height={24}>
-            {state.gender}
-          </Text>
+          {/* <DropDown
+            listDropDown={['Male', 'Female']}
+            value={state.gender}
+            setValue={value => setState({...state, gender: value})}
+            placeholder={t('SELECT_GENDER')}
+            isShowDropDown={true}
+          /> */}
         </Block>
-        <Block style={styles.inputRow}>
+        <Block style={[styles.inputRow, {borderBottomColor: colors.GRAY_700}]}>
           <Text color={colors.NEUTRAL} regular height={24} size={16}>
             {t('HEIGHT')}
           </Text>
@@ -66,7 +72,7 @@ const PersonalizeSettingScreen = () => {
             </Text>
           </Button>
         </Block>
-        <Block style={styles.inputRow}>
+        <Block style={[styles.inputRow, {borderBottomColor: colors.GRAY_700}]}>
           <Text color={colors.NEUTRAL} regular height={24} size={16}>
             {t('WEIGHT')}
           </Text>

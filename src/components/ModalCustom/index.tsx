@@ -1,11 +1,11 @@
 import Block from '@components/Block';
 import Button from '@components/Button';
+import Text from '@components/Text';
+import {t} from '@locales';
+import {useThemeStore} from '@themes/useThemeStore';
 import React from 'react';
 import {Modal} from 'react-native';
 import {styles} from './ModalCustom.style';
-import Text from '@components/Text';
-import {colors} from '@themes/colors';
-import {t} from '@locales';
 
 type Props = {
   open: boolean;
@@ -15,6 +15,9 @@ type Props = {
 
 const ModalCustom = (props: Props) => {
   const {open, toggleCloseModal, children} = props;
+
+  const {colors} = useThemeStore();
+
   return (
     <Modal
       animationType="slide"

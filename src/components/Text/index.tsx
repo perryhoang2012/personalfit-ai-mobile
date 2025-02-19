@@ -1,9 +1,9 @@
 import {moderateScale, scale, verticalScale} from '@helpers/uiHelper';
-import {colors} from '@themes/colors';
 import {fonts} from '@themes/fonts';
 import React from 'react';
 import {Platform, Text as TextBase} from 'react-native';
 import {styles} from './Text.styles';
+import {useTheme} from '@react-navigation/native';
 
 export interface Props {
   flex?: boolean;
@@ -99,6 +99,8 @@ const Text: React.FC<Props> = ({
   thin,
   thinItalic,
 }) => {
+  const colors = useTheme().colors;
+
   const textStyles: any = [
     {color: colors.GRAY_900},
     color && {

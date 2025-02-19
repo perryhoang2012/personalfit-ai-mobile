@@ -1,5 +1,4 @@
 import {getStatusBarHeight} from '@helpers/uiHelper';
-import {colors} from '@themes/colors';
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -14,15 +13,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     borderBottomWidth: 1,
-    borderBottomColor: colors.GRAY_700,
     paddingVertical: 20,
-  },
-
-  buttonSubmit: {
-    backgroundColor: colors.NEUTRAL,
-    paddingVertical: 15,
-    alignItems: 'center',
-    borderRadius: 5,
-    marginBottom: 40,
   },
 });
