@@ -5,7 +5,7 @@ import CustomImage from '@components/CustomImage';
 import Input from '@components/Input';
 import Text from '@components/Text';
 import {t} from '@locales';
-import {colors} from '@themes/colors';
+import {useThemeStore} from '@themes/useThemeStore';
 import {emailRules, passwordRules} from '@utils/validationRules';
 import React from 'react';
 import {Controller, useForm} from 'react-hook-form';
@@ -21,6 +21,8 @@ const SignInScreen = () => {
   } = useForm({
     mode: 'onSubmit',
   });
+
+  const {colors} = useThemeStore();
 
   const onSubmit = () => {};
 

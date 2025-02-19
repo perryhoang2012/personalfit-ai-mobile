@@ -5,13 +5,13 @@ import CustomImage from '@components/CustomImage';
 import Input from '@components/Input';
 import Text from '@components/Text';
 import {t} from '@locales';
-import {colors} from '@themes/colors';
+import {navigate} from '@navigation/NavigationService';
+import {useThemeStore} from '@themes/useThemeStore';
 import {emailRules, fullNameRules, passwordRules} from '@utils/validationRules';
 import React from 'react';
 import {Controller, useForm} from 'react-hook-form';
 import {ScrollView, View} from 'react-native';
 import {styles} from './SignUpScreen.styles';
-import {navigate} from '@navigation/NavigationService';
 
 const SignUpScreen = () => {
   const {
@@ -22,6 +22,8 @@ const SignUpScreen = () => {
   } = useForm({
     mode: 'onSubmit',
   });
+
+  const {colors} = useThemeStore();
 
   const onSubmit = () => {};
 

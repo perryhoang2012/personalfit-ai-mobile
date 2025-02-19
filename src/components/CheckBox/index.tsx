@@ -1,3 +1,4 @@
+import {useThemeStore} from '@themes/useThemeStore';
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {SvgXml} from 'react-native-svg';
@@ -17,10 +18,20 @@ const CheckBox: React.FC<Props> = ({
   active,
   onClick,
 }: Props): React.ReactElement => {
+  const {colors} = useThemeStore();
+
   return (
     <TouchableOpacity
       onPress={() => onClick()}
-      style={[styles.container, active ? styles.active : styles.inActive]}>
+      style={[
+        styles.container,
+        active
+          ? {backgroundColor: colors.PRIMARY} // active
+          : {
+              borderColor: colors.GRAY_400,
+              borderWidth: 1,
+            }, // inactive,
+      ]}>
       {active ? <SvgXml xml={svg_check} width={14} height={14} /> : <></>}
     </TouchableOpacity>
   );

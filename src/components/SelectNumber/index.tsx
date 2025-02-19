@@ -1,7 +1,7 @@
 import Block from '@components/Block';
 import Button from '@components/Button';
 import Text from '@components/Text';
-import {colors} from '@themes/colors';
+import {useThemeStore} from '@themes/useThemeStore';
 import React, {useEffect, useRef} from 'react';
 import {FlatList} from 'react-native';
 import {SvgFromXml} from 'react-native-svg';
@@ -27,6 +27,8 @@ const svg_add_circle = `<svg width="32" height="32" viewBox="0 0 32 32" fill="no
 
 const SelectNumber = (props: Props) => {
   const {number, setNumber, minNumber, maxNumber, unit} = props;
+
+  const {colors} = useThemeStore();
 
   const [numberActive, setNumberActive] = React.useState<number>(number);
 

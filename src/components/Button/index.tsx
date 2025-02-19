@@ -1,8 +1,8 @@
 import {scale, verticalScale} from '@helpers/uiHelper';
-import {colors} from '@themes/colors';
 import React from 'react';
 import {Keyboard, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
 import {styles} from './Button.styles';
+import {useThemeStore} from '@themes/useThemeStore';
 
 export type ButtonProps = {
   /**
@@ -268,6 +268,8 @@ const Button: React.FC<ButtonProps> = props => {
     loading,
     onLongPress,
   } = props;
+
+  const {colors} = useThemeStore();
 
   const buttonStyles: any = [
     flex && {flex: 1},

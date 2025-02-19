@@ -4,7 +4,7 @@ import Button from '@components/Button';
 import Text from '@components/Text';
 import {HEIGHT, WIDTH} from '@helpers/uiHelper';
 import {t} from '@locales';
-import {colors} from '@themes/colors';
+import {useThemeStore} from '@themes/useThemeStore';
 import React, {useRef, useState} from 'react';
 import {ImageBackground, ImageSourcePropType, StyleSheet} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
@@ -36,6 +36,8 @@ const slides: Slide[] = [
 ];
 
 const OnboardingScreen: React.FC = () => {
+  const {colors} = useThemeStore();
+
   const carouselRef = useRef<any>(null);
 
   const [activeIndex, setActiveIndex] = useState<number>(0);

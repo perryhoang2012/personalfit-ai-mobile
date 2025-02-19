@@ -1,6 +1,7 @@
 import Block from '@components/Block';
+import Button from '@components/Button';
 import Text from '@components/Text';
-import {colors} from '@themes/colors';
+import {useThemeStore} from '@themes/useThemeStore';
 import React from 'react';
 import {
   KeyboardTypeOptions,
@@ -9,9 +10,8 @@ import {
   TextInputFocusEventData,
   ViewStyle,
 } from 'react-native';
-import {styles} from './Input.styles';
-import Button from '@components/Button';
 import {SvgFromXml} from 'react-native-svg';
+import {styles} from './Input.styles';
 
 const svg_eye_slash = `<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7.10244 11.4599C6.95994 11.4599 6.81744 11.4074 6.70494 11.2949C6.08994 10.6799 5.75244 9.86244 5.75244 8.99994C5.75244 7.20744 7.20744 5.75244 8.99994 5.75244C9.86244 5.75244 10.6799 6.08994 11.2949 6.70494C11.3999 6.80994 11.4599 6.95244 11.4599 7.10244C11.4599 7.25244 11.3999 7.39494 11.2949 7.49994L7.49994 11.2949C7.38744 11.4074 7.24494 11.4599 7.10244 11.4599ZM8.99994 6.87744C7.82994 6.87744 6.87744 7.82994 6.87744 8.99994C6.87744 9.37494 6.97494 9.73494 7.15494 10.0499L10.0499 7.15494C9.73494 6.97494 9.37494 6.87744 8.99994 6.87744Z" fill="#FAFAFA"/>
@@ -59,6 +59,8 @@ const Input = (props: Props) => {
 
   const [isShowPassword, setIsShowPassword] = React.useState<boolean>(false);
 
+  const {colors} = useThemeStore();
+
   return (
     <Block style={[styleContainer]}>
       {inputTitle && (
@@ -66,7 +68,12 @@ const Input = (props: Props) => {
           {inputTitle}
         </Text>
       )}
-      <Block row space="between" middle center style={styles.container}>
+      <Block
+        row
+        space="between"
+        middle
+        center
+        style={[styles.container, {borderColor: colors.BORDER_INPUT}]}>
         <TextInput
           value={value}
           onChangeText={onChangeValue}
@@ -75,6 +82,7 @@ const Input = (props: Props) => {
             styles.containerInput,
             center && styles.center,
             middle && styles.middle,
+            {color: colors.NEUTRAL},
             styleInput,
           ]}
           placeholder={placeholder}

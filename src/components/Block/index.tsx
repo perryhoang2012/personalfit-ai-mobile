@@ -1,5 +1,5 @@
 import {scale, verticalScale} from '@helpers/uiHelper';
-import {colors} from '@themes/colors';
+import {useThemeStore} from '@themes/useThemeStore';
 import React from 'react';
 import {StyleProp, View, ViewStyle} from 'react-native';
 import {styles} from './Block.styles';
@@ -222,6 +222,8 @@ const Block: React.FC<BlockProps> = props => {
     height,
     background,
   } = props;
+
+  const {colors} = useThemeStore();
 
   const blockStyles: any = [
     flex && {flex: typeof flex === 'boolean' ? 1 : flex},
