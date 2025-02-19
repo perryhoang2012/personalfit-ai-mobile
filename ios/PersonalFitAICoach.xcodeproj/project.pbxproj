@@ -49,6 +49,7 @@
 		00E356EE1AD99517003FC87E /* PersonalFitAICoachTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonalFitAICoachTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* PersonalFitAICoachTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalFitAICoachTests.m; sourceTree = "<group>"; };
+		064CD8872D631EF300FFDF16 /* PersonalFitAICoach.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = PersonalFitAICoach.entitlements; path = PersonalFitAICoach/PersonalFitAICoach.entitlements; sourceTree = "<group>"; };
 		06969B402D62E56F000619EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B404B71416B483DA69A5923 /* Inter-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/Inter-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* PersonalFitAICoach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalFitAICoach.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +125,7 @@
 		13B07FAE1A68108700A75B9A /* PersonalFitAICoach */ = {
 			isa = PBXGroup;
 			children = (
+				064CD8872D631EF300FFDF16 /* PersonalFitAICoach.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -583,7 +585,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = PersonalFitAICoach/PersonalFitAICoach.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PersonalFitAICoach/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "PersonalFit AI Coach";
@@ -612,7 +616,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = PersonalFitAICoach/PersonalFitAICoach.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PersonalFitAICoach/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "PersonalFit AI Coach";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
@@ -722,6 +728,8 @@
 					"-ld_classic",
 					"-Wl",
 					"-ld_classic",
+					"-Wl",
+					"-ld_classic",
 					"-Wl -ld_classic ",
 				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
@@ -803,6 +811,8 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
+					"-Wl",
+					"-ld_classic",
 					"-Wl",
 					"-ld_classic",
 					"-Wl",

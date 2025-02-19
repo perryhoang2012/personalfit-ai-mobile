@@ -28,9 +28,11 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>localhost</key>
+			<key>New Exception Domain</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
 		</dict>
@@ -57,6 +59,12 @@
 		<string>Inter-SemiBoldItalic.ttf</string>
 		<string>Inter-Thin.ttf</string>
 		<string>Inter-ThinItalic.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>processing</string>
+		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
